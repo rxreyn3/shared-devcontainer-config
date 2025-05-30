@@ -1,9 +1,9 @@
 {
-  "name": "Claude Code Sandbox",
+  "name": "Hopper",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "TZ": "${localEnv:TZ:America/Toronto}"
+      "TZ": "${localEnv:TZ:America/Montreal}"
     }
   },
   "runArgs": ["--cap-add=NET_ADMIN", "--cap-add=NET_RAW"],
@@ -12,7 +12,16 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "beardedbear.beardedicons",
+        "beardedbear.beardedtheme",
+        "bedirt.gpt-token-counter-live",
+        "bierner.markdown-mermaid",
+        "codeium.codeium",
+        "johnpapa.vscode-peacock",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
       ],
       "settings": {
         "editor.formatOnSave": true,
@@ -20,6 +29,8 @@
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": "explicit"
         },
+        "editor.fontFamily": "'JetBrains Mono NL',Menlo, Monaco, 'Courier New', monospace",
+        "peacock.surpriseMeOnStartup": true,
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.profiles.linux": {
           "bash": {
@@ -37,15 +48,16 @@
   "mounts": [
     "source=claude-code-bashhistory,target=/commandhistory,type=volume",
     "source=claude-code-config,target=/home/node/.claude,type=volume",
-    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.config/age,target=/home/node/.config/age,type=bind,consistency=cached",
+    "source=/run/host-services/ssh-auth.sock,target=/run/host-services/ssh-auth.sock,type=bind,readonly"
   ],
   "remoteEnv": {
     "NODE_OPTIONS": "--max-old-space-size=4096",
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
     "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
-    "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}"
+    "SSH_AUTH_SOCK": "/run/host-services/ssh-auth.sock"
   },
+  "postCreateCommand": "if [ -f ~/dotfiles/install.sh ]; then ~/dotfiles/install.sh; fi",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
-  "workspaceFolder": "/workspace",
-  "postCreateCommand": "sudo /usr/local/bin/init-firewall.sh"
+  "workspaceFolder": "/workspace"
 }
