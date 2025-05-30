@@ -1,5 +1,5 @@
 {
-  "name": "Hopper",
+  "name": "Spam",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
