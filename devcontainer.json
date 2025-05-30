@@ -57,7 +57,6 @@
     "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
     "SSH_AUTH_SOCK": "/run/host-services/ssh-auth.sock"
   },
-  "postCreateCommand": "if [ -f ~/dotfiles/install.sh ]; then ~/dotfiles/install.sh; fi",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace"
 }
