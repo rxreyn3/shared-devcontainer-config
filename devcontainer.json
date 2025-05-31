@@ -1,5 +1,5 @@
 {
-  "name": "Spam",
+  "name": "Hopper",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
@@ -12,12 +12,11 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "eamodio.gitlens",
+        "codeium.codeium",
         "beardedbear.beardedicons",
         "beardedbear.beardedtheme",
         "bedirt.gpt-token-counter-live",
         "bierner.markdown-mermaid",
-        "codeium.codeium",
         "johnpapa.vscode-peacock",
         "ms-python.debugpy",
         "ms-python.python",
