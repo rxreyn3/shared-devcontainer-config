@@ -23,7 +23,8 @@ RUN apt update && apt install -y less \
   python3 \
   python3-pip \
   python3-venv \
-  age
+  age \
+  curl
 
 # Install Google Cloud SDK
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
