@@ -21,8 +21,8 @@ fi
 echo "Powerlevel10k setup complete!"
 echo "Please restart your shell or run 'exec zsh' to activate."
 
-exec zsh
-
 echo "Seting your git user information..."
 echo "git config --global user.email \"you@example.com\""
 echo "git config --global user.name \"Your Name\""
+
+exec zsh
