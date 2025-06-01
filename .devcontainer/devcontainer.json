@@ -14,7 +14,8 @@
     "ghcr.io/devcontainers/features/rust:1": {},
     "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {},
     "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
-    "ghcr.io/prulloac/devcontainer-features/chezmoi:1": {}
+    "ghcr.io/prulloac/devcontainer-features/chezmoi:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
   },
   "mounts": [
     "source=${localEnv:HOME}/.config/age,target=/home/vscode/.config/age,type=bind,consistency=cached"
